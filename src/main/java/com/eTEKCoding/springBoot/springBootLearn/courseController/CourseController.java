@@ -54,4 +54,15 @@ public class CourseController {
   public Course updateCourse( @PathVariable Integer id, @RequestBody Course course){
     return repository.save(course);
   }
+
+  // Delete
+  @RequestMapping(method = RequestMethod.DELETE, path = "/courses/{id}")
+  public String deleteCourse( @PathVariable int id){
+    if(new Course().getId() != id){
+      return "The course with " + id + "does not exists";
+    }else {
+      repository.deleteById(id);
+      return id + " removed";
+    }
+  }
 }
