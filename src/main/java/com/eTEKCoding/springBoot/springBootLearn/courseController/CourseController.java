@@ -16,14 +16,14 @@ public class CourseController {
 
   @RequestMapping(method = RequestMethod.GET, path = "/courses")
     public List<Course> retrieveAllCourses(){
-      Course course = new Course(2, "Spring Data JPA", "TEKCoding55");
+      Course course = new Course(2, "Spring Data JPA 33", "TEKCoding");
        return Arrays.asList(course);
   }
 
   // localhost:8080/courses/1
   @RequestMapping(method = RequestMethod.GET, path = "courses/1")
     public Course retrieveCourseById() {
-      Course course = new Course(1, "Spring Boot", "TEKCoding");
+      Course course = new Course(1, "Spring Boot Data JPA", "TEKCoding33");
           return course;
   }
 }
