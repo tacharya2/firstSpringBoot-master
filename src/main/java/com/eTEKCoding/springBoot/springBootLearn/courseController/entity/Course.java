@@ -1,12 +1,19 @@
 package com.eTEKCoding.springBoot.springBootLearn.courseController.entity;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import javax.persistence.*;
 
-
+// Magic of spring boot auto configuration
+// If we don't want the default field names in the table, you can customize it here
+// @Entity(name="course_table")
+//     @Column(name="course_name") for
+//    private String course;
+@Entity(name="course")
 public class Course {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
     private String course;
     private String school;
 
@@ -26,5 +33,8 @@ public class Course {
 
     public String getSchool() {
         return school;
+    }
+
+    public Course() {
     }
 }
