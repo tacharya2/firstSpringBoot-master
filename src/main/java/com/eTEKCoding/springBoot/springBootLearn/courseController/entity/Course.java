@@ -27,13 +27,4 @@ public class Course {
     public String getSchool() {
         return school;
     }
-
-    @Override
-    public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", course='" + course + '\'' +
-                ", school='" + school + '\'' +
-                '}';
-    }
 }
