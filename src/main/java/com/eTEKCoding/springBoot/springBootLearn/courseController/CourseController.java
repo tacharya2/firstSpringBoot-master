@@ -16,6 +16,7 @@ public class CourseController {
   private CourseRepository repository;
   //localhost:8080/courses
 
+  // Retrieve
   @RequestMapping(method = RequestMethod.GET, path = "/courses")
     public List<Course> retrieveAllCourses(){
     return repository.findAll();
@@ -23,6 +24,7 @@ public class CourseController {
 //       return Arrays.asList(course);
   }
 
+  // Retrieve
   // localhost:8080/courses/1
   @RequestMapping(method = RequestMethod.GET, path = "courses/{id}")
     public Course retrieveCourseById(@PathVariable int id) {
@@ -40,9 +42,16 @@ public class CourseController {
 //          return course;
   }
 
+  // Add
   @RequestMapping(method = RequestMethod.POST, path = "/courses")
   public String addCourse(@RequestBody Course course) {
    repository.save(course);
    return course.getCourse() + " saved successfully";
+  }
+
+  // Update
+  @RequestMapping(method = RequestMethod.PUT, path = "/courses/{id}")
+  public Course updateCourse( @PathVariable Integer id, @RequestBody Course course){
+    return repository.save(course);
   }
 }
